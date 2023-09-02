@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.devtools.ksp'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace libs.versions.applicationId.get() // Should be similar to applicationId
+    compileSdk libs.versions.compileSdk.get() as Integer
+
+    defaultConfig {
+        applicationId libs.versions.applicationId.get()
+        minSdk libs.versions.minSdk.get() as Integer
+        targetSdk libs.versions.targetSdk.get() as Integer
+        versionCode libs.versions.appVersionCode.get() as Integer
+        versionName libs.versions.appVersionName.get()
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            // Need further testing before enabling proguard
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            // Need further testing before enabling proguard
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility libs.versions.javaVersion.get() as Integer
+        targetCompatibility libs.versions.javaVersion.get() as Integer
+    }
+
+    kotlinOptions {
+        jvmTarget = libs.versions.jvmTarget.get()
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+}
+
+dependencies {
+    // Core + Androidx related dependencies
+    implementation libs.core.ktx
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+
+    // Lifecycle dependencies
+    implementation libs.lifecycle.runtime.ktx
+
+    // Material Design dependency
+    implementation libs.material.design
+
+    // Navigation Component dependencies
+    implementation libs.navigation.fragment.ktx
+    implementation libs.navigation.ui.ktx
+
+    // Hilt
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+
+    // OkHttp
+    implementation(platform(libs.okhttp3.bom))
+    implementation libs.okhttp3
+    implementation libs.okhttp3.logging.interceptor
+
+    // Retrofit
+    implementation libs.retrofit
+    implementation libs.retrofit2.kotlin.coroutines.adapter
+    implementation libs.converter.gson
+
+    // Gson
+    libs.gson
+
+    // Coroutines
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.kotlinx.coroutines.core
+
+    // Glide
+    implementation libs.glide
+    implementation libs.glide.transformations
+    ksp libs.glide.compiler
+
+    // Room persistence library
+    implementation libs.room.runtime
+    implementation libs.room.ktx // Coroutines support for Room
+    ksp libs.room.compiler
+
+    // Timber (Logging)
+    debugImplementation libs.timber
+
+    // Security Library (for sharedPreferences and read & write file)
+    // See: https://developer.android.com/topic/security/data
+    implementation libs.security.crypto
+
+    // Paging
+    implementation libs.paging.runtime.ktx
+    implementation libs.room.paging // Paging 3 Integration
+
+    // Swipe Refresh Layout
+    implementation libs.swiperefreshlayout
+
+    // Diagonal Imageview
+    implementation libs.diagonal.imageview
+
+    // SQLCipher for Room Database
+    implementation libs.android.database.sqlcipher
+
+    // Testing
+    testImplementation libs.test.junit
+    androidTestImplementation libs.test.ext.junit
+    androidTestImplementation libs.test.espresso.core
+}

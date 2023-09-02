@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".ui.movie.MovieListFragment">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/movie_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/rounded_background"
+        android:elevation="5dp"
+        android:padding="5dp"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@color/transparent"
+        app:searchHintIcon="@null"
+        app:searchIcon="@null" />
+
+    <TextView
+        android:id="@+id/no_result_found"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_result_found_text"
+        android:visibility="gone"
+        android:textSize="20sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:indeterminateTint="@color/primary_color" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/movie_list_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:clipToPadding="false"
+        android:paddingBottom="15dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/movie_item" />
+
+</LinearLayout>

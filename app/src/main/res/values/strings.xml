@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">AssuranceAssessment</string>
+    <string name="welcome_title">Welcome back</string>
+    <string name="welcome_message">I am so happy to see you again. You can continue to login for more features.</string>
+    <string name="sign_up_text">Sign up</string>
+    <string name="login_text">Login</string>
+    <string name="password_text">Password</string>
+    <string name="username_text">Username</string>
+    <string name="don_t_have_an_account_text">Don\'t have an account?</string>
+    <string name="is_app_opened">is_app_opened</string>
+    <string name="retry_text">retry</string>
+    <string name="initial_screen_title">Access more with an\naccount</string>
+    <string name="initial_screen_text">Login to an account so you could\naccess more features</string>
+    <string name="sign_up_message">Create an account to start exploring</string>
+    <string name="confirm_password_text">Confirm Password</string>
+    <string name="error_fetching_movie_details">Oops! There is an error fetching the movie details. Try again later</string>
+    <string name="error_text">Error</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="confirm_text">Confirm</string>
+    <string name="movie_rating_score">%1$s / 10</string>
+    <string name="other_ratings_text">Other Ratings</string>
+    <string name="plot_summary_text">Plot Summary</string>
+    <string name="movie_total_no_of_ratings">%1$s Ratings</string>
+    <string name="error_too_many_requests">Too many consecutive authentication requests received.
+        Please try again later"</string>
+    <string name="default_login_error_message">Invalid user or password</string>
+    <string name="default_login_details_error_message">Invalid username or password length is less than 6</string>
+    <string name="default_sign_up_details_error_message">Invalid username or password length is less than 6.
+        Please ensure confirm password is similar to entered password</string>
+    <string name="default_sign_up_error_message">Something went wrong with registering user</string>
+    <string name="user_registered_message">User Registered</string>
+    <string name="no_result_found_text">No Result Found.\nTry another search keyword</string>
+</resources>
